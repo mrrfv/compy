@@ -1,10 +1,11 @@
 package transcoder
 
 import (
-	"github.com/barnacs/compy/proxy"
-	"github.com/chai2010/webp"
 	"image/png"
 	"net/http"
+
+	"github.com/barnacs/compy/proxy"
+	"github.com/chai2010/webp"
 )
 
 type Png struct{}
@@ -18,7 +19,7 @@ func (t *Png) Transcode(w *proxy.ResponseWriter, r *proxy.ResponseReader, header
 	if SupportsWebP(headers) {
 		w.Header().Set("Content-Type", "image/webp")
 		options := webp.Options{
-			Lossless: true,
+			Lossless: false,
 		}
 		if err = webp.Encode(w, img, &options); err != nil {
 			return err

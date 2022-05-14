@@ -4,6 +4,11 @@ Compy
 Compy is an HTTP/HTTPS forward proxy with content compression/transcoding capabilities.  
 One use case is to reduce bandwidth usage when browsing on limited mobile broadband connection.
 
+mrrfv's changes
+--------
+
+- WEBP lossy compression
+- Removed JS minification
 
 Features
 --------

@@ -1,12 +1,12 @@
 package transcoder
 
 import (
+	"net/http"
+
 	"github.com/barnacs/compy/proxy"
 	"github.com/tdewolff/minify/v2"
 	"github.com/tdewolff/minify/v2/css"
 	"github.com/tdewolff/minify/v2/html"
-	"github.com/tdewolff/minify/v2/js"
-	"net/http"
 )
 
 type Minifier struct {
@@ -17,9 +17,6 @@ func NewMinifier() *Minifier {
 	m := minify.New()
 	m.AddFunc("text/html", html.Minify)
 	m.AddFunc("text/css", css.Minify)
-	m.AddFunc("text/javascript", js.Minify)
-	m.AddFunc("application/javascript", js.Minify)
-	m.AddFunc("application/x-javascript", js.Minify)
 	return &Minifier{
 		m: m,
 	}
